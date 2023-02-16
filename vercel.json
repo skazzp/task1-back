@@ -9,8 +9,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "src/main.ts",
-      "methods": ["GET", "POST", "PUT", "PATCH", "DELETE"]
+      "destination": "src/main.ts"
     }
   ],
   "headers": [
