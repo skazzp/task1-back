@@ -5,12 +5,16 @@ export class FeedbackEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ length: 25 })
+  @Column({ nullable: false, length: 25 })
   name: string;
 
-  @Column()
+  @Column({
+    nullable: false,
+  })
   email: string;
 
-  @Column()
+  @Column({
+    nullable: false,
+  })
   message: string;
 }

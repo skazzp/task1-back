@@ -1,4 +1,11 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  ValidationPipe,
+  UsePipes,
+} from '@nestjs/common';
+import { FeedbackDto } from './feedback.dto';
 import { FeedbackEntity } from './feedback.entity/feedback.entity';
 import { FeedbackService } from './feedback.service';
 
@@ -7,7 +14,8 @@ export class FeedbackController {
   constructor(private service: FeedbackService) {}
 
   @Post()
-  create(@Body() feedback: FeedbackEntity) {
+  @UsePipes(ValidationPipe)
+  create(@Body() feedback: FeedbackDto) {
     return this.service.createMessage(feedback);
   }
 }
